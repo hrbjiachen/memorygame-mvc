@@ -3,6 +3,7 @@ let goodAudio = new Audio("/sound/good_click.mp3");
 let badAudio = new Audio("/sound/bad_click.wav");
 let flipAudio = new Audio("/sound/flip.mp3");
 let nextAudio = new Audio("/sound/next_trail.mp3");
+let lastClick;
 
 class CustomConfirm {
   constructor(url) {
@@ -40,6 +41,7 @@ const GameOverConfirm = new CustomConfirm(`${window.location.origin}`);
 const init = async () => {
   const status = await checkGameStatus();
   const { initAnimationRequired, actions } = status;
+  lastClick = new Date().getTime();
 
   if (initAnimationRequired) {
     showSecret(2000);
@@ -115,6 +117,14 @@ const removeClickListenerToSquare = () => {
 };
 
 const clickSquare = async e => {
+  //prevent click too fast
+  let curTime = new Date().getTime();
+  if (curTime - lastClick < 300) {
+    return;
+  }
+
+  lastClick = curTime;
+
   const row = e.target.getAttribute("row")
     ? e.target.getAttribute("row")
     : e.target.parentElement.getAttribute("row");
@@ -125,6 +135,7 @@ const clickSquare = async e => {
   const result = await callServer("action", "POST", { row, col });
 
   if (result.status === "Game Over") {
+    document.getElementById("noBtn").style.display = "none";
     GameOverConfirm.render("Game Over! Do you want to restart game?");
     return;
   }
@@ -272,5 +283,6 @@ const hideInfoDiv = () => {
 };
 
 const stopGame = () => {
+  document.getElementById("noBtn").style.display = "display";
   TerminateConfirm.render("Are you sure you want to terminate?");
 };

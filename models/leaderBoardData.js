@@ -28,7 +28,7 @@ const getOneById = async id => await LeaderBoard.findById(id);
 const deleteOneById = async id => await LeaderBoard.deleteOne(id);
 
 const updateOneById = async (id, data) =>
-  await LeaderBoard.updateOne({ _id: req.params.id }, { $set: data });
+  await LeaderBoard.updateOne({ _id: id }, { $set: data });
 
 const add = async (name, game) => {
   const { curTrail, score } = game;

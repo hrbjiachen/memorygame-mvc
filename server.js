@@ -7,6 +7,7 @@ const routes = require("./routes");
 const expressHbs = require("express-handlebars");
 const path = require("path");
 const gameData = require("./models/gameData");
+const schedule = require("node-schedule");
 require("dotenv/config");
 
 const { PORT, NODE_ENV, SESS_NAME, SESS_SECRET, DB_CONNECTION } = process.env;
@@ -58,6 +59,14 @@ mongoose.connect(
   }
 );
 
+//scheduled tasks
+const rule = new schedule.RecurrenceRule();
+rule.minute = 0;
+schedule.scheduleJob(rule, () => {
+  gameData.clearExpiredGame();
+});
+
+// start server
 app.listen(PORT, () => {
   console.log(`Server running at port ${PORT}.`);
 });

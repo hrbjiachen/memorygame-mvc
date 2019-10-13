@@ -15,6 +15,7 @@ const addNewGame = gameId => {
     gameId,
     curTrail: 0,
     score: 0,
+    date: new Date(),
     terminate: false,
     tile: defaultOptions[2],
     trails: [newTrail]
@@ -68,6 +69,24 @@ const prepareNextTrail = game => {
   return game;
 };
 
+const clearExpiredGame = () => {
+  const diff_hours = (dt2, dt1) => {
+    let diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60 * 60;
+    return Math.abs(diff);
+  };
+  let counter = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (diff_hours(data[i].date, new Date()) > 1) {
+      data.splice(i, 1);
+      counter++;
+    }
+  }
+  console.log(
+    `Cleared ${counter} expired games...${data.length} active game(s) remaining...`
+  );
+};
+
 module.exports = {
   addNewGame,
   removeGame,
@@ -75,5 +94,6 @@ module.exports = {
   updateAnimationStatus,
   updateScore,
   updateAction,
-  prepareNextTrail
+  prepareNextTrail,
+  clearExpiredGame
 };

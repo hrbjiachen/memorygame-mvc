@@ -109,6 +109,7 @@ div.flip_div_Y {
 }
 
 #info_div {
+  margin-top: 5%;
   color: white;
   text-align: center;
   font-size: 20px;
