@@ -1,0 +1,14 @@
+<div class="summary_div">
+    <h1 class="summary_title">{{pageTitle}}</h1>
+    <h3 id="trail_info">Trail: {{curTrail}}</h3>
+    <h3 id="score_info" score="{{score}}">Score: 0</h3>
+
+    <input id="name" type="text" maxlength="20" placeholder="Enter your name and submit!" />
+    <button class="button" id="submit" onclick="submitScore()">SUBMIT</button>
+    <button class="button" id="restart" onclick="restartGame()">
+        RESTART
+    </button>
+</div>
+
+<div id="snackbar"></div>
+<script src="/js/summary.js"></script>

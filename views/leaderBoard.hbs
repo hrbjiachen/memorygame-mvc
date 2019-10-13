@@ -1,0 +1,41 @@
+<div id="leader_board_div">
+    <h1 class="leader_board_title">{{pageTitle}}</h1>
+    <div id="table_div">
+        <table id="leader_board_table">
+            <tr class="tableHeader">
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Trail</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+            {{#if player}}
+            <tr class="curUserRow">
+                <td>{{player.Rank}}</td>
+                <td>{{player.Player}}</td>
+                <td>{{player.Trail}}</td>
+                <td>{{player.Score}}</td>
+                <td>{{player.Date}}</td>
+            </tr>
+
+            {{/if}}
+
+            {{#each data}}
+            <tr>
+                <td>{{this.Rank}}</td>
+                <td>{{this.Player}}</td>
+                <td>{{this.Trail}}</td>
+                <td>{{this.Score}}</td>
+                <td>{{this.Date}}</td>
+            </tr>
+            {{/each}}
+
+        </table>
+
+    </div>
+    <button class="button" id="restart" onclick="restartGame()">
+        RESTART
+    </button>
+</div>
+
+<script src="/js/leaderBoard.js"></script>

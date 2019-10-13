@@ -1,0 +1,93 @@
+.summary_div {
+  width: 350px;
+  border: 1px solid white;
+  background-color: #260e04;
+  padding: 1% 3% 3% 3%;
+  height: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.summary_div > h1,
+.summary_div > h3 {
+  color: white;
+}
+
+button#restart,
+button#submit {
+  margin: 20px 0 10px;
+  width: 240px;
+}
+
+input#name {
+  text-align: center;
+  width: 240px;
+  height: 30px;
+  margin: 20px 0 5px;
+  border-radius: 5px;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

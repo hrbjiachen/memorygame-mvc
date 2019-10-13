@@ -1,0 +1,31 @@
+.coverPageDiv {
+  margin: auto;
+  width: 80%;
+  margin-top: 12%;
+}
+
+.gameTitleDiv {
+  color: white;
+  font-size: 80px;
+}
+
+.gameIntroDiv {
+  color: white;
+  font-size: 30px;
+  margin: 3% 35% 0 35%;
+}
+
+.startBtn {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5%;
+  margin-top: 5%;
+}
+
+.startBtn:hover {
+  background-color: #ff844c;
+}

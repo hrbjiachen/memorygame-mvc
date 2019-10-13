@@ -1,0 +1,45 @@
+<div id="top_div">
+    <span id="scoreInfo">SCORE: {{score}}</span>
+    <span id="trailInfo">TRAIL: {{curTrail}}</span>
+    <span id="tileInfo">TILE: {{tile}}</span>
+    <button id="stopBtn" class="button" onclick="stopGame()">
+        TERMINATE
+    </button>
+</div>
+<div id="board_div" {{#if initAnimationRequired}}class="show_div" {{/if}}>
+    <table id="myTable">
+        {{#each board as |value key|}}
+        <tr>
+            {{#each value as |sub_value sub_key|}}
+            <td>
+                {{#if sub_value}}
+                <div class="secret_square_div" row="{{key}}" col="{{sub_key}}">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                </div>
+                {{else}}
+                <div class="square_div" row="{{key}}" col="{{sub_key}}"></div>
+                {{/if}}
+
+            </td>
+            {{/each}}
+        </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div id="info_div"></div>
+
+<div id="dialog_overlay"></div>
+<div id="dialog_box">
+    <div>
+        <div id="dialog_box_header">Memory Game</div>
+        <div id="dialog_box_body"></div>
+        <div id="dialog_box_foot">
+            <button class="dialogBtn" id="yesBtn">Ok</button>
+            <button class="dialogBtn" id="noBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="/js/gameBoard.js"></script>

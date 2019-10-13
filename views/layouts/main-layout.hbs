@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="COMP4711 Assign1" />
+    <meta name="author" content="Jason Jia" />
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css" />
+    {{#if homeCSS}}
+    <link href='/css/home.css' rel='stylesheet' />
+    {{/if}}
+    {{#if gameBoardCSS}}
+    <link href='/css/gameBoard.css' rel='stylesheet' />
+    {{/if}}
+    {{#if summaryCSS}}
+    <link href='/css/summary.css' rel='stylesheet' />
+    {{/if}}
+    {{#if leaderBoardCSS}}
+    <link href='/css/leaderBoard.css' rel='stylesheet' />
+    {{/if}}
+</head>
+
+<body onload="init()">
+    {{{body}}}
+</body>
+
+</html>
